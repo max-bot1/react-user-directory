@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.topNav {
+  background-color: #34a5da;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  align-content: center;
+}
+
+.topNav h1 {
+  height: 4vh;
+  margin-left: 50vh;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+}

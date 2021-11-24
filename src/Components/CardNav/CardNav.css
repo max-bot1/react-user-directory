@@ -1,0 +1,43 @@
+.cardNavContainer {
+  display: flex;
+  width: 70vh;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.lastBtn {
+  color: white;
+  background-color: #222222;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.lastBtn:active {
+  border: white;
+}
+
+.blueBtn {
+  color: white;
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #34a5da;
+  cursor: pointer;
+}
+
+.nextBtn {
+  color: white;
+  background-color: #222222;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.nextBtn:active {
+  border: white;
+}
+
+.blueContainer button {
+  margin: 10px;
+}
