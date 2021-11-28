@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  color: #242424;
 }
 
 .cardMain {
@@ -11,9 +12,39 @@ body {
 }
 
 .card {
-  background-color: white;
-  height: 40vh;
+  background-color: #ebebeb;
+  height: 35vh;
   width: 70vh;
-  /* margin-left: 40vh; */
   margin: auto;
+}
+
+/* .counter {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+} */
+
+.counter > h4 {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  margin-top: 5px;
+  margin-right: 5px;
+  font-size: larger;
+  font-weight: 800;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.name > h2 {
+  display: inline-block;
+  border: #6db8df solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 0;
 }
