@@ -14,8 +14,22 @@ class UserCard extends Component {
     };
   }
 
+  nextCard = () => {
+    const newIndex = this.state.index + 1;
+    newIndex === this.state.employeeTotal
+      ? alert("There are no more employees.")
+      : this.setState({ ...this.state, index: newIndex });
+  };
+
+  lastCard = () => {
+    const newIndex = this.state.index - 1;
+    newIndex === -1
+      ? alert("There are no previous employees.")
+      : this.setState({ ...this.state, index: newIndex });
+  };
+
   render() {
-    const { data, employeeTotal, index } = this.state;
+    const { data, employeeTotal } = this.state;
     return (
       <div className="cardMain">
         <div className="card">
@@ -53,7 +67,7 @@ class UserCard extends Component {
             );
           })}
         </div>
-        <CardNav />
+        <CardNav lastCard={this.lastCard} nextCard={this.nextCard} />
       </div>
     );
   }

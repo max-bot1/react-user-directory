@@ -1,17 +1,23 @@
 import React, { Component } from "react";
+import NewBtn from "../NewBtn/NewBtn";
 import "./CardNav.css";
 
 class CardNav extends Component {
   render() {
+    // const { data } = this.props;
     return (
       <div className="cardNavContainer">
-        <button className="lastBtn">&lt; Previous</button>
+        <button onClick={this.props.lastCard} className="lastBtn">
+          &lt; Previous
+        </button>
         <div className="blueContainer">
           <button className="blueBtn">Edit</button>
           <button className="blueBtn">Delete</button>
-          <button className="blueBtn">New</button>
+          <NewBtn />
         </div>
-        <button className="nextBtn">Next &gt;</button>
+        <button onClick={this.props.nextCard} className="nextBtn">
+          Next &gt;
+        </button>
       </div>
     );
   }
