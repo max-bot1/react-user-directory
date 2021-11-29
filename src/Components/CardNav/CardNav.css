@@ -12,10 +12,11 @@
   background-color: #222222;
   border: 1px solid gray;
   cursor: pointer;
+  box-sizing: content-box;
 }
 
 .lastBtn:active {
-  border: white;
+  border: 1px solid white;
 }
 
 .blueBtn {
@@ -32,10 +33,11 @@
   background-color: #222222;
   border: 1px solid gray;
   cursor: pointer;
+  box-sizing: content-box;
 }
 
 .nextBtn:active {
-  border: white;
+  border: 1px solid white;
 }
 
 .blueContainer button {

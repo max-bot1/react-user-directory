@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import NewBtn from "../NewBtn/NewBtn";
 import "./CardNav.css";
 
 class CardNav extends Component {
   render() {
-    // const { data } = this.props;
     return (
       <div className="cardNavContainer">
         <button onClick={this.props.lastCard} className="lastBtn">
@@ -12,8 +10,12 @@ class CardNav extends Component {
         </button>
         <div className="blueContainer">
           <button className="blueBtn">Edit</button>
-          <button className="blueBtn">Delete</button>
-          <NewBtn />
+          <button onClick={this.props.deleteCard} className="blueBtn">
+            Delete
+          </button>
+          <button onClick={this.props.newCard} className="blueBtn">
+            New
+          </button>
         </div>
         <button onClick={this.props.nextCard} className="nextBtn">
           Next &gt;

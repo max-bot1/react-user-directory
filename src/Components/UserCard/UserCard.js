@@ -28,8 +28,20 @@ class UserCard extends Component {
       : this.setState({ ...this.state, index: newIndex });
   };
 
+  deleteCard = () => {
+    const { index, employeeTotal, data } = this.state;
+    const newTotal = employeeTotal - 1;
+    this.state.data.splice(index, 1);
+    this.setState({
+      employeeTotal: newTotal,
+      data: data,
+      index: index === newTotal ? index - 1 : index,
+    });
+  };
+
   render() {
     const { data, employeeTotal } = this.state;
+
     return (
       <div className="cardMain">
         <div className="card">
@@ -38,7 +50,7 @@ class UserCard extends Component {
               <div className="userInfo">
                 <div className="counter">
                   <h4>
-                    {employee.id}/{employeeTotal}
+                    {this.state.index + 1}/{employeeTotal}
                   </h4>
                 </div>
                 <div className="name">
@@ -67,7 +79,12 @@ class UserCard extends Component {
             );
           })}
         </div>
-        <CardNav lastCard={this.lastCard} nextCard={this.nextCard} />
+        <CardNav
+          deleteCard={this.deleteCard}
+          lastCard={this.lastCard}
+          nextCard={this.nextCard}
+          newCard={this.newCard}
+        />
       </div>
     );
   }
