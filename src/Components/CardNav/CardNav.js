@@ -9,11 +9,13 @@ class CardNav extends Component {
           &lt; Previous
         </button>
         <div className="blueContainer">
-          <button className="blueBtn">Edit</button>
+          <button onClick={this.props.showForm} className="blueBtn">
+            Edit
+          </button>
           <button onClick={this.props.deleteCard} className="blueBtn">
             Delete
           </button>
-          <button onClick={this.props.newCard} className="blueBtn">
+          <button onClick={this.props.showForm} className="blueBtn">
             New
           </button>
         </div>

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./UserCard.css";
 import CardNav from "../CardNav/CardNav";
-import data from "/Users/Max/Desktop/react-user-directory/react-user-directory/src/data";
+import data from "/Users/Max/Desktop/Projects/react-user-directory/src/data";
 import List from "../List/List";
+import Form from "../Form/Form";
 
 class UserCard extends Component {
   constructor(props) {
@@ -11,6 +12,16 @@ class UserCard extends Component {
       data: data,
       employeeTotal: 25,
       index: 0,
+      first: "",
+      last: "",
+      location: "",
+      title: "",
+      employer: "",
+      favoriteMovies: [],
+      firstMovie: "",
+      secondMovie: "",
+      thirdMovie: "",
+      className: "hidden",
     };
   }
 
@@ -39,8 +50,113 @@ class UserCard extends Component {
     });
   };
 
+  // showForm = () => {
+  //   const form = document.getElementsByClassName("form");
+  //   form.style.display = "flex, inline";
+  // };
+
+  handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    this.setState({
+      ...this.state,
+      [name]: value,
+    });
+  };
+
+  editCard = (e) => {
+    e.preventDefault();
+    const {
+      data,
+      first,
+      last,
+      city,
+      country,
+      firstMovie,
+      secondMovie,
+      thirdMovie,
+      title,
+      employer,
+      index,
+    } = this.state;
+
+    const editedCard = {
+      id: data[index].id,
+      name: { first, last },
+      city: city,
+      country: country,
+      employer: employer,
+      title: title,
+      favoriteMovies: [firstMovie, secondMovie, thirdMovie],
+    };
+
+    const newData = data;
+    this.state.data.splice(this.state.index, 1, editedCard);
+    this.setState({
+      ...this.state,
+      data: newData,
+    });
+  };
+
+  showForm = () => {
+    const { className } = this.state;
+    this.setState({
+      ...this.state,
+      className: className === "hidden" ? "form" : "hidden",
+    });
+  };
+
+  newCard = (e) => {
+    const {
+      data,
+      employeeTotal,
+      first,
+      last,
+      city,
+      country,
+      firstMovie,
+      secondMovie,
+      thirdMovie,
+      title,
+      employer,
+    } = this.state;
+    const newEmployeeTotal = employeeTotal + 1;
+
+    const newEmployee = {
+      id: newEmployeeTotal,
+      name: { first, last },
+      city: city,
+      country: country,
+      employer: employer,
+      title: title,
+      favoriteMovies: [firstMovie, secondMovie, thirdMovie],
+    };
+
+    const newData = data;
+    data.push(newEmployee);
+    this.setState({
+      ...this.state,
+      employeeTotal: newEmployeeTotal,
+      index: employeeTotal,
+      data: newData,
+    });
+  };
+
   render() {
-    const { data, employeeTotal } = this.state;
+    const {
+      data,
+      employeeTotal,
+      first,
+      last,
+      city,
+      country,
+      firstMovie,
+      secondMovie,
+      thirdMovie,
+      title,
+      employer,
+      className,
+    } = this.state;
 
     return (
       <div className="cardMain">
@@ -78,12 +194,30 @@ class UserCard extends Component {
               ""
             );
           })}
+          ;
         </div>
         <CardNav
           deleteCard={this.deleteCard}
           lastCard={this.lastCard}
           nextCard={this.nextCard}
+          showForm={this.showForm}
           newCard={this.newCard}
+          editCard={this.editCard}
+          showForm={this.showForm}
+        />
+        <Form
+          first={first}
+          last={last}
+          city={city}
+          country={country}
+          firstMovie={firstMovie}
+          secondMovie={secondMovie}
+          thirdMovie={thirdMovie}
+          title={title}
+          employer={employer}
+          handleInputChange={this.handleInputChange}
+          className={className}
+          editCard={this.editCard}
         />
       </div>
     );

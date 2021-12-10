@@ -18,11 +18,18 @@ body {
   margin: auto;
 }
 
-/* .counter {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20px;
-} */
+.form {
+  display: FLEX, INLINE;
+  flex-direction: column;
+  justify-content: center;
+  width: 20vh;
+  margin: auto;
+}
+
+.form > button {
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
 
 .counter > h4 {
   display: flex;
@@ -38,6 +45,10 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+}
+
+.hidden {
+  display: none;
 }
 
 .name > h2 {
